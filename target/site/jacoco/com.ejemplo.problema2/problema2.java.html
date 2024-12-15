@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>problema2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JunitExample Maven Webapp</a> &gt; <a href="index.source.html" class="el_package">com.ejemplo.problema2</a> &gt; <span class="el_source">problema2.java</span></div><h1>problema2.java</h1><pre class="source lang-java linenums">package com.ejemplo.problema2;
+
+<span class="nc" id="L3">public class problema2 {</span>
+
+    
+    static class Cliente {
+        private final int edad;
+        private final boolean estaEstudiando;
+        private final boolean viveConPadres;
+        private final boolean estaTrabajando;
+
+<span class="fc" id="L12">        public Cliente(int edad, boolean estaEstudiando, boolean viveConPadres, boolean estaTrabajando) {</span>
+<span class="fc" id="L13">            this.edad = edad;</span>
+<span class="fc" id="L14">            this.estaEstudiando = estaEstudiando;</span>
+<span class="fc" id="L15">            this.viveConPadres = viveConPadres;</span>
+<span class="fc" id="L16">            this.estaTrabajando = estaTrabajando;</span>
+<span class="fc" id="L17">        }</span>
+
+        public int getEdad() {
+<span class="fc" id="L20">            return edad;</span>
+        }
+
+        public boolean isEstaEstudiando() {
+<span class="fc" id="L24">            return estaEstudiando;</span>
+        }
+
+        public boolean isViveConPadres() {
+<span class="fc" id="L28">            return viveConPadres;</span>
+        }
+
+        public boolean isEstaTrabajando() {
+<span class="fc" id="L32">            return estaTrabajando;</span>
+        }
+    }
+
+    
+    public static String determinarTipoCuenta(Cliente cliente) {
+<span class="fc" id="L38">        int edad = cliente.getEdad();</span>
+<span class="fc" id="L39">        boolean estaEstudiando = cliente.isEstaEstudiando();</span>
+<span class="fc" id="L40">        boolean viveConPadres = cliente.isViveConPadres();</span>
+<span class="fc" id="L41">        boolean estaTrabajando = cliente.isEstaTrabajando();</span>
+
+        // Validaci�n de la edad (evita valores negativos o irreales)
+<span class="pc bpc" id="L44" title="1 of 4 branches missed.">        if (edad &lt; 0 || edad &gt; 120) {</span>
+<span class="fc" id="L45">            return &quot;Sin tipo de cuenta disponible&quot;;</span>
+        }
+
+        // Menores de 18 a�os
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (edad &lt; 18) {</span>
+<span class="pc bpc" id="L50" title="1 of 4 branches missed.">            if (estaEstudiando &amp;&amp; viveConPadres) {</span>
+<span class="nc" id="L51">                return &quot;Cuenta Confort&quot;;</span>
+            }
+        }
+
+        // Entre 18 y 25 a�os
+<span class="fc bfc" id="L56" title="All 4 branches covered.">        if (edad &gt;= 18 &amp;&amp; edad &lt;= 25) {</span>
+<span class="fc bfc" id="L57" title="All 4 branches covered.">            if (estaEstudiando &amp;&amp; !viveConPadres) {</span>
+<span class="fc" id="L58">                return &quot;Cuenta Vamos que t� puedes&quot;;</span>
+            }
+<span class="fc bfc" id="L60" title="All 4 branches covered.">            if (estaTrabajando &amp;&amp; viveConPadres) {</span>
+<span class="fc" id="L61">                return &quot;Cuenta Ahorra ahora que puedes&quot;;</span>
+            }
+<span class="pc bpc" id="L63" title="1 of 4 branches missed.">            if (estaTrabajando &amp;&amp; !viveConPadres) {</span>
+<span class="fc" id="L64">                return &quot;Cuenta Saltando del Nido&quot;;</span>
+            }
+        }
+
+        // Mayores de 25 a�os
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (edad &gt; 25) {</span>
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">            if (estaTrabajando &amp;&amp; viveConPadres) {</span>
+<span class="fc" id="L71">                return &quot;Cuenta Independ�zate que va siendo hora&quot;;</span>
+            }
+<span class="pc bpc" id="L73" title="3 of 4 branches missed.">            if (estaTrabajando &amp;&amp; !viveConPadres) {</span>
+<span class="nc" id="L74">                return &quot;Cuenta Bienvenido a la Vida Adulta&quot;;</span>
+            }
+        }
+
+        // En caso de no cumplir ninguna condici�n
+<span class="fc" id="L79">        return &quot;Sin tipo de cuenta disponible&quot;;</span>
+    }
+
+
+
+    
+    public static void main(String[] args) {
+        // Crear clientes de prueba
+<span class="nc" id="L87">        Cliente cliente1 = new Cliente(17, true, true, false);  // Caso: Cuenta Confort</span>
+<span class="nc" id="L88">        Cliente cliente2 = new Cliente(24, false, false, true); // Caso: Cuenta Saltando del Nido</span>
+<span class="nc" id="L89">        Cliente cliente3 = new Cliente(30, false, true, true);  // Caso: Cuenta Independ�zate que va siendo hora</span>
+
+        // Probar los casos
+<span class="nc" id="L92">        System.out.println(&quot;Cliente 1: &quot; + determinarTipoCuenta(cliente1)); </span>
+<span class="nc" id="L93">        System.out.println(&quot;Cliente 2: &quot; + determinarTipoCuenta(cliente2)); </span>
+<span class="nc" id="L94">        System.out.println(&quot;Cliente 3: &quot; + determinarTipoCuenta(cliente3)); </span>
+<span class="nc" id="L95">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
