@@ -21,6 +21,7 @@ Realizado por:
 | Lucía García Sánchez	         | lucia.garcia72@alu.uclm.es  |
 
 
+![Captura de pantalla 2024-12-15 212047](https://github.com/user-attachments/assets/1a63e5bb-16af-44d5-8b25-45e1b13b6105)
 
 
 ## **3. Testing con JUnit**
