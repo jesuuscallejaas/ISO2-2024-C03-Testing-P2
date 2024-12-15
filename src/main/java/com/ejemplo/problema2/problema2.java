@@ -40,53 +40,38 @@ public class problema2 {
         boolean viveConPadres = cliente.isViveConPadres();
         boolean estaTrabajando = cliente.isEstaTrabajando();
 
-        // Validación de la edad (evita valores negativos o irreales)
-        if (edad < 0 || edad > 120) {
-            return "Sin tipo de cuenta disponible";
-        }
-
-        // Menores de 18 años
+        
         if (edad < 18) {
             if (estaEstudiando && viveConPadres) {
                 return "Cuenta Confort";
             }
-        }
-
-        // Entre 18 y 25 años
-        if (edad >= 18 && edad <= 25) {
+        } else if (edad < 25) {
             if (estaEstudiando && !viveConPadres) {
-                return "Cuenta Vamos que tú puedes";
+                return "Cuenta Vamos que t  puedes";
             }
+        } else if (edad >= 18 && edad <= 25) {
             if (estaTrabajando && viveConPadres) {
                 return "Cuenta Ahorra ahora que puedes";
-            }
-            if (estaTrabajando && !viveConPadres) {
+            } else if (estaTrabajando && !viveConPadres) {
                 return "Cuenta Saltando del Nido";
             }
-        }
-
-        // Mayores de 25 años
-        if (edad > 25) {
+        } else if (edad > 25) {
             if (estaTrabajando && viveConPadres) {
-                return "Cuenta Independízate que va siendo hora";
-            }
-            if (estaTrabajando && !viveConPadres) {
+                return "Cuenta Independ zate que va siendo hora";
+            } else if (estaTrabajando && !viveConPadres) {
                 return "Cuenta Bienvenido a la Vida Adulta";
             }
         }
 
-        // En caso de no cumplir ninguna condición
         return "Sin tipo de cuenta disponible";
     }
-
-
 
     
     public static void main(String[] args) {
         // Crear clientes de prueba
         Cliente cliente1 = new Cliente(17, true, true, false);  // Caso: Cuenta Confort
         Cliente cliente2 = new Cliente(24, false, false, true); // Caso: Cuenta Saltando del Nido
-        Cliente cliente3 = new Cliente(30, false, true, true);  // Caso: Cuenta Independízate que va siendo hora
+        Cliente cliente3 = new Cliente(30, false, true, true);  // Caso: Cuenta Independ zate que va siendo hora
 
         // Probar los casos
         System.out.println("Cliente 1: " + determinarTipoCuenta(cliente1)); 
@@ -94,5 +79,4 @@ public class problema2 {
         System.out.println("Cliente 3: " + determinarTipoCuenta(cliente3)); 
     }
 }
-
 
