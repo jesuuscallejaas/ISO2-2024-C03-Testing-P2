@@ -32,9 +32,9 @@ Realizado por:
 | Elías González Valdepeñas    | elias.gonzalez@alu.uclm.es   |
 | Jesús Calleja Soto	         | jesus.callejas@alu.uclm.es  |
 
-![image](https://github.com/user-attachments/assets/39b9e9af-736b-4542-b657-9e7656f97fd2)
-![image](https://github.com/user-attachments/assets/872d14c2-0e81-43c7-a6d9-311a21ac3576)
 
+
+![image](https://github.com/user-attachments/assets/2f80e61b-8170-4cb9-99d2-06ac39143b7f)
 
 
 
