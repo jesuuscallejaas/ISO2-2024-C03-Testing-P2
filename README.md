@@ -31,7 +31,7 @@ Realizado por:
 | Nombre                       | Correo                       |
 |------------------------------|------------------------------|
 | Elías González Valdepeñas    | elias.gonzalez@alu.uclm.es   |
-| Jesús Calleja Soto	         | jesus.callejas@alu.uclm.es  |
+| Jesús Callejas Soto	         | jesus.callejas@alu.uclm.es  |
 | Lucia Garcia Sanchez         | lucia.garcia72@alu.uclm.es
 
 ![image](https://github.com/user-attachments/assets/39b9e9af-736b-4542-b657-9e7656f97fd2)
