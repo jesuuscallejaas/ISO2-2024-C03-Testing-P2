@@ -38,6 +38,7 @@ Realizado por:
 
 ## **4. Fallo de Testing con Junit**
 Al realizar el Testing, nos daba fallo en el public static String determinarTipoCuenta(Cliente cliente), dejo pora aqui el codigo que nos daba fallo y lo que hemos cambiado del codigo.
+
 public static String determinarTipoCuenta(Cliente cliente) {
         int edad = cliente.getEdad();
         boolean estaEstudiando = cliente.isEstaEstudiando();
