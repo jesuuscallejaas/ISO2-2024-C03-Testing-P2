@@ -36,6 +36,53 @@ Realizado por:
 
 ![image](https://github.com/user-attachments/assets/2f80e61b-8170-4cb9-99d2-06ac39143b7f)
 
+## **4. Fallo de Testing con Junit**
+Al realizar el Testing, nos daba fallo en el public static String determinarTipoCuenta(Cliente cliente), dejo pora aqui el codigo que nos daba fallo y lo que hemos cambiado del codigo.
+public static String determinarTipoCuenta(Cliente cliente) {
+        int edad = cliente.getEdad();
+        boolean estaEstudiando = cliente.isEstaEstudiando();
+        boolean viveConPadres = cliente.isViveConPadres();
+        boolean estaTrabajando = cliente.isEstaTrabajando();
+
+        // Validación de la edad (evita valores negativos o irreales)
+        if (edad < 0 || edad > 120) {
+            return "Sin tipo de cuenta disponible";
+        }
+
+        // Menores de 18 años
+        if (edad < 18) {
+            if (estaEstudiando && viveConPadres) {
+                return "Cuenta Confort";
+            }
+        }
+
+        // Entre 18 y 25 años
+        if (edad >= 18 && edad <= 25) {
+            if (estaEstudiando && !viveConPadres) {
+                return "Cuenta Vamos que tú puedes";
+            }
+            if (estaTrabajando && viveConPadres) {
+                return "Cuenta Ahorra ahora que puedes";
+            }
+            if (estaTrabajando && !viveConPadres) {
+                return "Cuenta Saltando del Nido";
+            }
+        }
+
+        // Mayores de 25 años
+        if (edad > 25) {
+            if (estaTrabajando && viveConPadres) {
+                return "Cuenta Independízate que va siendo hora";
+            }
+            if (estaTrabajando && !viveConPadres) {
+                return "Cuenta Bienvenido a la Vida Adulta";
+            }
+        }
+
+        // En caso de no cumplir ninguna condición
+        return "Sin tipo de cuenta disponible";
+    }
+
 
 
 
